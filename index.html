@@ -1,17 +1,473 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WAD Assignment</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&display=swap" rel="stylesheet">
+
+  <title>Document</title>
+
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      border: none;
+      display: block;
+      margin: 0;
+      height: 4000px;
+    }
+    .announcement-container{
+      background-color: #f9f3e9;
+      color: rgb(8, 71, 8);
+      align-items: center;
+      display: flex;
+      justify-content: center;
+      font-family: "Archivo"  ;
+      font-size: 12px;
+      font-weight: 500;
+      padding: 8px 0px 8px 0px;
+      letter-spacing: 2px;
+      user-select: none;
+    }
+
+    .mainHeader {
+      
+
+      background-color: transparent;
+      height: 70px;
+      width: 100%;
+
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      /* box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.05); */
+      position: absolute;
+      z-index: 50;
+    }
+
+    
+    .logoContainer {
+      /* background-color: red; */
+      width: 300px;
+      height: 100%;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      
+      
+    }
+    .logowrap{
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      line-height: 28px;
+    }
+
+    .logo1 {
+      font-family: "Archivo";
+      font-size: 32px;
+      font-weight: 900;
+      letter-spacing: 0px;
+      line-height: 14px;
+      cursor: pointer;
+      user-select: none;
+      color: white;
+    }
+    .logo1:hover{
+      cursor: pointer;
+    }
+
+    .logo2 {
+      font-family: "Archivo";
+      font-size: 25px;
+      font-weight: 900;
+      letter-spacing: 0px;
+      cursor: pointer;
+      user-select: none;
+      color: white;
+    }
+    .logo2:hover{
+      cursor:pointer;
+    }
+
+    
+    .header-middle-container {
+      /* background-color: green; */
+      width: 500px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+      
+    }
+    .header-middle-container a{
+     font-family:"Montserrat" ;
+     color: white;
+     cursor: pointer;
+     user-select: none;
+     position: relative;
+     font-weight: bold;
+    }
+
+    .header-middle-container a::after{
+      content: "";
+      position: absolute;
+      left: 0 ; 
+      width: 0%;
+      height: 1.5px;
+      bottom: -4px;
+      background-color: white;
+      transition: 0.3s ease-in-out;
+    }
+    .header-middle-container a:hover::after{
+      width: 100%;
+    }
+    .header-left-container{
+      height: 100%;
+      width: 300px;
+      /* background-color: red; */
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+    }
+    
+    .cartContainer {
+      /* background-color: pink; */
+      height: 100%;
+      width:25%;
+
+      position:relative;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      
+    }
+    .cartCount{
+      position: absolute;
+      top: 31px;
+      left: 34px;
+      font-family: "Archivo";
+      font-weight: 500;
+      font-size: 13px;
+      color:white;
+
+      
+    }
+    
+    .cartImage {
+      height: 30px;
+      cursor: pointer ;
+    }
+    .cartImage:hover{
+      cursor:pointer;
+      height: 27px;
+      transition: 0.3s ease-in-out;
+    }
+    .cartImage:active{
+      cursor: pointer;
+      height: 24px;
+      transition:0.1s ease;
+    }
+    .userContainer{
+      /* background-color: blue; */
+      height: 100%;
+      width: 75%;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: row;
+    }
+    .login-button-container{
+      width: 35%;
+      height: 100%;
+      /* background-color: green; */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+    }
+    .login-button{
+      border: 2px solid black;
+      
+      color: black;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      background-color: #f9f3e9;
+      padding: 10px 18px 10px 18px;
+      border-radius: 12px;
+      cursor: pointer;
+      margin-right: 6px;
+    }
+    .login-button:hover{
+      transition: 0.3s ;
+      transform: translateY(-1px);
+    }
+    .login-button:active{
+      transform: translateY(0);
+      transition: 0.3s ;
+      padding: 9px 17px 9px 17px ;
+    }
+    .signup-button-container{
+      width: 40%;
+      height: 100%; 
+      /* background-color: lightblue; */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .signup-button{
+      border: 2px solid #f9f3e9;
+      
+      color: white;
+      font-family: arial;
+      font-size: 16px;
+      font-weight: 500;
+      background-color: black;
+      padding: 10px 18px 10px 18px;
+      border-radius: 12px; 
+      white-space: nowrap;
+      margin-left: 5px;
+      cursor: pointer;
+      
+    }
+    .signup-button:hover{
+      
+      transition: 0.3s ;
+      transform: translateY(-1px);
+    }
+    .signup-button:active{
+      transform: translateY(0);
+      transition: 0.3s ;
+      padding: 9px 17px 9px 17px ;
+    }
+    .profile-icon-container{
+      width: 25%;
+      height: 100%;
+      /* background-color: lightcoral; */
+      display: none;
+      justify-content: center;
+      align-items: center;
+
+    }
+    
+    .userImage{
+      height: 23px;
+      cursor: pointer ;
+    }
+    .userImage:hover{
+      cursor:pointer;
+      height: 21px;
+      transition: 0.3s ease-in-out;
+    }
+    .userImage:active{
+      cursor: pointer;
+      height: 18px;
+      transition:0.1s ease;
+    }
+
+    .mainHero-container{
+      position: relative;
+      top: 0;
+      width: 100%;
+      height: 664px;
+      overflow: hidden;
+
+    }
+    .hero-image{
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transform: scale(1.06);
+      transition: opacity 1.4s ease , transform 7s ease-in-out;
+    }
+    .hero-image.active{
+      opacity: 1;
+      transform: scale(1);
+    }
+    .hero-shade{
+      position: absolute;
+      inset: 0;                         
+      background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.05) 25%, rgba(0,0,0,0.05) 55%, rgba(0,0,0,0.45) 100%); 
+    }
+    .hero-text{
+      color: white;
+      font-family: "Archivo";
+      font-size: 95px;
+      font-weight: 800;
+      text-transform: uppercase;
+      position: absolute;
+      bottom: 160px;
+      left: 50px;
+      line-height: 85px;
+      letter-spacing: -2px;
+    }
+    .hero-text2{
+      display: block;
+    }
+    .hero-text3{
+      color: white;
+      font-family: "Archivo";
+      font-size: 30px;
+      font-weight: 800;
+      position: absolute;
+      bottom: 160px;
+      left: 50px;
+      line-height: 85px;
+      letter-spacing: -1px;
+    }
+    .hero-button{
+      position: absolute;
+      bottom: 150px;
+      left: 55px;
+      color: white;
+      border: 2px solid rgba(255, 255, 255, 0.45);
+      background: rgba(255, 255, 255, 0.22);        
+      backdrop-filter: blur(8px); 
+      padding: 16px 26px 16px 26px;  
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 700;
+      font-family: "Archivo";
+      transition: background-color 0.2s ease-in , color 0.2s ease-in , transform 0.1s ease-in;
+    }
+    .hero-button:hover{
+      background-color: white;
+      color: black;
+    }
+    .hero-button:active{
+      transform: translateY(3px);
+    }
+    .hero-dots{
+      position: absolute;
+      right: 80px;          
+      bottom: 32px;
+      z-index: 1;                    
+      display: flex;                 
+      gap: 8px; 
+      
+    }
+    .dots {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;         
+      border: 1.5px solid #fff;   
+      user-select: none;
+      transition: background-color 0.3s;
+      
+    }
+    .dots.active{
+      background-color: white;
+    }
+  </style>
 </head>
+
 <body>
 
-    <h1>WAD Assignment</h1>
-    <p>Website is working.</p>
+  <div class="announcement-container">Add a gift pouch to any order for Rs 40 ✦ Handmade in Mauritius</div>
 
-    <script src="js/script.js"></script>
+  <header class="mainHeader">
+
+    <div class="logoContainer">
+      <div class="logowrap">
+      <span class="logo1">Personality</span>
+      <span class="logo2">Organics</span>
+      </div>
+      
+    </div>
+
+    <nav class="header-middle-container">
+      <a >Home</a>
+      <a >Shop</a>
+      <a >About</a>
+      <a >Contact us</a>
+    </nav>
+
+    <div class="header-left-container">
+      <div class="cartContainer">
+        <img src="images/shopping-bag.png" class="cartImage" alt="Shopping bag">
+        <span class="cartCount">0</span>
+      </div>
+      <div class="userContainer">
+        <div class="login-button-container">
+          <button class="login-button">Login</button>
+        </div>
+        <div class="signup-button-container">
+          <button class="signup-button">Sign up</button>
+        </div>
+        
+        <div class="profile-icon-container">
+          <img src="images/user.png" class="userImage" alt="profile">
+          
+        </div>
+        
+      </div>
+    </div>
+    
+   
+
+  </header>
+
+
+
+   <div class="mainHero-container">
+    <img src="images/image-1791381336823.jpg" class="hero-image active">
+    <img src="images/image-1791381388062.jpg" class="hero-image">
+    <img src="images/image-1791381395807.jpg" class="hero-image">
+    <div class="hero-shade"></div>
+
+    <!-- text section -->
+    <p class="hero-text">Little rituals,<span class="hero-text2">big personality.</span></p>
+    <p class="hero-text3">Organic bath & body rituals, handmade in Mauritius.</p>
+
+    <!-- button sections -->
+     <button class="hero-button">Shop the collection <span>→</span></button>
+    <!-- dots section -->
+     <div class="hero-dots">
+      <span class="dots active"></span>
+      <span class="dots"></span>
+      <span class="dots"></span>
+     </div>
+   </div>
+
+<script>
+  const slides = document.querySelectorAll(".hero-image");
+  const dots = document.querySelectorAll(".dots");
+  let current = 0 ; 
+
+
+     
+  function slideshow(i){
+    slides[current].classList.remove("active");
+    dots[current].classList.remove("active");
+
+    current = (i + slides.length) % slides.length;
+    
+    slides[current].classList.add("active");
+    dots[current].classList.add("active");
+  }
+
+  setInterval(function() {
+    slideshow(current+1) ;} , 5500); 
+  
+</script>
+
 </body>
+
+
 </html>
