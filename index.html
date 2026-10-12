@@ -1,1338 +1,452 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&display=swap" rel="stylesheet">
 
-  <title>Document</title>
+      <title>Personality Organics</title>
 
-  <style>
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      border: none;
-      display: block;
-      margin: 0;
-      height: 8000px;
-    }
-    .announcement-container{
-      background-color: #f9f3e9;
-      color: #23704c;
-      align-items: center;
-      display: flex;
-      justify-content: center;
-      font-family: "Archivo"  ;
-      font-size: 12px;
-      font-weight: 500;
-      padding: 8px 0px 8px 0px;
-      letter-spacing: 2px;
-      user-select: none;
-    }
+      <link rel="stylesheet" href="style.css"/>
+    </head>
 
-    .mainHeader {
-      
 
-      background-color: transparent;
-      height: 70px;
-      width: 100%;
-      top: 31px;
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
-      /* box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.05); */
-      position: absolute;
-      z-index: 50;
-    }
-    .mainHeader.scrolled{
-      position: fixed;
-      top: 0;
-      background-color:#f9f3e9 ;
-      animation: scroll 0.3s ease-in;
-    }
+    <body>
 
-    .mainHeader.scrolled .logo1 ,
-    .mainHeader.scrolled .logo2 , 
-    .mainHeader.scrolled .header-middle-container a , 
-    .mainHeader.scrolled .cartCount{
-      color: #23704c;
-    }
-    .mainHeader.scrolled .header-middle-container a::after{
-      background-color:#23704c ;
-    }
-    .mainHeader.scrolled .cartContainer{
-      filter: brightness(0);
-    }
+      <div class="announcement-container">Add a gift pouch to any order for Rs 40 ✦ Handmade in Mauritius</div>
 
-    
-    .logoContainer {
-      /* background-color: red; */
-      width: 300px;
-      height: 100%;
+      <header class="mainHeader">
 
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      
-      
-    }
-    .logowrap{
-      margin-top: 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      line-height: 32px;
-    }
-
-    .logo1 {
-      font-family: "Archivo";
-      font-size: 25px;
-      font-weight: 900;
-      letter-spacing: 0px;
-      line-height: 14px;
-      cursor: pointer;
-      user-select: none;
-      color: white;
-      text-transform: uppercase;
-    }
-    .logo1:hover{
-      cursor: pointer;
-    }
-
-    .logo2 {
-      font-family: "Archivo";
-      font-size: 25px;
-      font-weight: 900;
-      letter-spacing: 0px;
-      cursor: pointer;
-      user-select: none;
-      color: white;
-      text-transform: uppercase;
-    }
-    .logo2:hover{
-      cursor:pointer;
-    }
-
-    
-    .header-middle-container {
-      /* background-color: green; */
-      width: 600px;
-      display: flex;
-      flex-direction: row;
-      justify-content: space-around;
-      align-items: center;
-      
-    }
-    .header-middle-container a{
-     font-family:"Montserrat" ;
-     color: white;
-     cursor: pointer;
-     user-select: none;
-     position: relative;
-     font-weight: 600;
-     font-size: 15px;
-     text-transform: uppercase;
-    }
-
-    .header-middle-container a::after{
-      content: "";
-      position: absolute;
-      left: 0 ; 
-      width: 0%;
-      height: 1.5px;
-      bottom: -4px;
-      background-color: white;
-      transition: 0.3s ease-in-out;
-    }
-    .header-middle-container a:hover::after{
-      width: 100%;
-    }
-    .header-left-container{
-      height: 100%;
-      width: 300px;
-      /* background-color: red; */
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-    }
-    
-    .cartContainer {
-      /* background-color: pink; */
-      height: 100%;
-      width:25%;
-
-      position:relative;
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      
-    }
-   
-    .cartCount{
-      position: absolute;
-      top: 34px;
-      left: 31.5px;
-      font-family: "Archivo";
-      font-weight: 500;
-      font-size: 11px;
-      color:white;
-      pointer-events: none;
-      transition: font-size 0.3s ease-in-out,         
-              left 0.3s ease-in-out,
-              top 0.3s ease-in-out;
-
-      
-    }
-    .cartImage:hover + .cartCount{
-      font-size: 8px;
-      left: 33px;
-      
-    }
-    
-    .cartImage {
-      height: 32px;
-      cursor: pointer ;
-    }
-    .cartImage:hover{
-      cursor:pointer;
-      height: 27px;
-      transition: 0.3s ease-in-out;
-    }
-    .cartImage:active{
-      cursor: pointer;
-      height: 24px;
-      transition:0.1s ease;
-    }
-    .userContainer{
-      /* background-color: blue; */
-      height: 100%;
-      width: 75%;
-
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: row;
-    }
-    .login-button-container{
-      width: 35%;
-      height: 100%;
-      /* background-color: green; */
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-    }
-    .login-button{
-      border: 2px solid black;
-      
-      color: black;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 16px;
-      font-weight: 500;
-      background-color: #f9f3e9;
-      padding: 10px 18px 10px 18px;
-      border-radius: 12px;
-      cursor: pointer;
-      margin-right: 6px;
-      
-    }
-    .login-button:hover{
-      transition: 0.3s ;
-      transform: translateY(-1px);
-      box-shadow: 0px 3px 4px rgba(0,0,0,0.15);
-    }
-    .login-button:active{
-      transform: translateY(0);
-      transition: 0.3s ;
-      padding: 9px 17px 9px 17px ;
-      box-shadow: none;
-    }
-    .signup-button-container{
-      width: 40%;
-      height: 100%; 
-      /* background-color: lightblue; */
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .signup-button{
-      border: 2px solid #f9f3e9;
-      
-      color: white;
-      font-family: arial;
-      font-size: 16px;
-      font-weight: 500;
-      background-color: black;
-      padding: 10px 18px 10px 18px;
-      border-radius: 12px; 
-      white-space: nowrap;
-      margin-left: 5px;
-      cursor: pointer;
-      
-    }
-    .signup-button:hover{
-      
-      transition: 0.3s ;
-      transform: translateY(-1px);
-      box-shadow: 0px 3px 4px rgba(0,0,0,0.15);
-    }
-    .signup-button:active{
-      transform: translateY(0);
-      transition: 0.3s ;
-      padding: 9px 17px 9px 17px ;
-      box-shadow: 0px 3px 4px rgba(0,0,0,0.15);
-    }
-    .profile-icon-container{
-      width: 25%;
-      height: 100%;
-      /* background-color: lightcoral; */
-      display: none;
-      justify-content: center;
-      align-items: center;
-
-    }
-    
-    .userImage{
-      height: 23px;
-      cursor: pointer ;
-    }
-    .userImage:hover{
-      cursor:pointer;
-      height: 21px;
-      transition: 0.3s ease-in-out;
-    }
-    .userImage:active{
-      cursor: pointer;
-      height: 18px;
-      transition:0.1s ease;
-    }
-
-    .mainHero-container{
-      position: relative;
-      top: 0;
-      width: 100%;
-      height: 664px;
-      overflow: hidden;
-
-    }
-    .hero-image{
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      opacity: 0;
-      transform: scale(1.06);
-      transition: opacity 1.4s ease , transform 7s ease-in-out;
-    }
-    .hero-image.active{
-      opacity: 1;
-      transform: scale(1);
-    }
-    .hero-shade{
-      position: absolute;
-      inset: 0;                         
-      background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.05) 25%, rgba(0,0,0,0.05) 55%, rgba(0,0,0,0.45) 100%); 
-    }
-    .hero-text{
-      color: white;
-      font-family: "Archivo";
-      font-size: 95px;
-      font-weight: 800;
-      text-transform: uppercase;
-      position: absolute;
-      bottom: 160px;
-      left: 50px;
-      line-height: 85px;
-      letter-spacing: -2px;
-    }
-    .hero-text2{
-      display: block;
-    }
-    .hero-text3{
-      color: white;
-      font-family: "Archivo";
-      font-size: 30px;
-      font-weight: 800;
-      position: absolute;
-      bottom: 160px;
-      left: 50px;
-      line-height: 85px;
-      letter-spacing: -1px;
-    }
-    .hero-button{
-      position: absolute;
-      bottom: 150px;
-      left: 55px;
-      color: white;
-      border: 2px solid rgba(255, 255, 255, 0.45);
-      background: rgba(255, 255, 255, 0.22);        
-      backdrop-filter: blur(8px); 
-      padding: 16px 26px 16px 26px;  
-      border-radius: 6px;
-      cursor: pointer;
-      font-weight: 700;
-      font-family: "Archivo";
-      transition: background-color 0.2s ease-in , color 0.2s ease-in , transform 0.1s ease-in;
-    }
-    .hero-button:hover{
-      background-color: white;
-      color: black;
-    }
-    .hero-button:active{
-      transform: translateY(3px);
-    }
-    .hero-dots{
-      position: absolute;
-      right: 80px;          
-      bottom: 32px;
-      z-index: 1;                    
-      display: flex;                 
-      gap: 8px; 
-      
-    }
-    .dots {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;         
-      border: 1.5px solid #fff;   
-      user-select: none;
-      transition: background-color 0.3s;
-      
-    }
-    .dots.active{
-      background-color: white;
-    }
-
-    /* ticker */
-    .Ticker-container{
-      width: 100%;
-      height: 40px;
-      background-color: f9f3e9;
-      color: #23704c; 
-      overflow: hidden;
-      user-select: none;
-      border-top: 1px solid #e7dccb;
-      border-bottom: 1px solid #e7dccb;
-    }
-    .TickerTrack{
-      display: flex;
-      align-items: center;
-      height: 100%;
-      width: max-content;
-      /* background-color: pink; */
-      animation: ticker 40s linear infinite;
-    }
-    .TickerTrack span{
-      font-family: "Archivo";
-      font-weight: 500;
-      font-size: 15px;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      padding: 0px 20px;
-      white-space: nowrap;
-    }
-    .TickerTrack:hover {
-      animation-play-state: paused;
-      
-    }
-
-    /* featuring product */
-    .mainfeature-container{
-      height: 3100px;
-      background-color: red;
-    }
-    .feature-container{
-      height: 25%;
-      width: 100%;
-      background-color: green;
-      display: flex;
-      flex-direction: row;
-
-    }
-    .feature-product-container{
-      background-color: #f9f3e9;
-      height: 100%;
-      width: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    
-    .feature-productImage-container{
-      height: 90%;
-      width: 60%;
-      display: flex;
-      flex-direction: column;
-    }
-    .featureProductImageContainer{
-      width: 100%;
-      height: 90%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-    }
-    .feature-image{
-      height: 94%;
-      width: 92%;
-      object-fit: cover;
-      border-radius:5px ;
-      cursor: pointer;
-      transition: all 0.4s ease-in-out;
-    }
-    .feature-image:hover{
-      transform: scale(1.015);
-    }
-    .sticker{
-     position: absolute;
-     top: -10px;
-     right: -10px;
-     width: 85px;
-     height: 85px;
-     border-radius: 50%;
-     background-color: #23704c;
-     color: white;
-     display: flex;
-     justify-content: center;
-     align-items: center;
-     text-transform: uppercase;
-
-     font-family: "DM mono";
-     font-weight: 700;
-     font-size: 10px;
-     user-select: none;
-     pointer-events: none;
-
-
-     transform: rotate(12deg);
-     box-shadow: 0 0 0 4px #f9f3e9;
-     
-    }
-    .feature-button-container{
-      width: 100%;
-      height: 10%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      
-    }
-    .feature-button{
-      border: none;
-      border-radius: 4px;
-      padding: 13px 20px;
-      background-color: white;
-      color: #23704c;
-      font-family: "Archivo";
-      font-weight: 700;
-      cursor: pointer;
-      box-shadow: 0px 1px 0px rgba(0, 0,0, 0.12);
-      transition: all 0.3s ease-in-out;
-    }
-    .feature-button:hover{
-      background-color: #23704c;
-      color: white;
-    }
-    .feature-button:active{
-      transform: translateY(2px);
-    }
-    .feature-hero{
-      height: 100%;
-      width: 50%;
-      position: relative;
-      color: white;
-    }
-    .feature-hero-image{
-      height: 100%;
-      width: 100%;
-      overflow: hidden;
-      
-      object-fit: cover;
-    }
-    .feature-hero-tint{
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg,
-      rgba(0,0,0,0.45) 0%,         
-      rgba(0,0,0,0)    35%,
-      rgba(0,0,0,0)    50%,
-      rgba(0,0,0,0.6)  100%);
-    }
-    .feature-header{
-      position: absolute;
-      top: -25px;
-      left: 45px;
-      font-family: "Archivo";
-      font-size: 70px;
-      font-weight: 800;
-      letter-spacing: -2px;
-      text-transform: uppercase;
-      /* background-color: white; */
-    }
-    .feature-mini-header{
-      position: absolute;
-      top: 110px;
-      left: 55px;
-      font-family: "DM Mono";
-      font-weight: 500;
-      font-size: 12px;
-      letter-spacing: 0px;
-      text-transform: uppercase;
-    }
-    .benefits-list{
-      position: absolute;
-      bottom: 50px;
-      left: 0px;
-      list-style: none;
-      font-family: "Archivo";
-      font-weight: 700;
-      font-size: 26px;
-      line-height: 35px;
-      
-      
-    }
-    .maindifference-container{
-      position: relative;
-      height: 650px;
-      width: 100%;
-      background-color: white;
-
-    }
-    .difference-header{
-      position: absolute;
-      top: 115px;
-      left: 140px;
-      font-family: "Archivo";
-      font-weight: 800;
-      text-transform: uppercase;
-      color: #23704c;
-      line-height: 65px;
-      font-size: 70px;
-      letter-spacing: -1px;
-      
-    }
-    .difference-header span{
-      display: block;
-    }
-    .difference-list{
-      position: absolute;
-      bottom: 100px;
-      left: 105px;
-      font-family: "DM Mono";
-      font-size: 18px;
-      font-weight: 600;
-      line-height: 30px;
-      color: #23704c;
-      list-style: none;
-    }
-    .difference-list li::before{
-      content: "✓";
-      margin-right: 8px;
-    }
-    .difference-image-container{
-      position: absolute;
-      top: 125px;
-      right: 215px;
-      border-radius:46% 54% 42% 58% / 55% 45% 55% 45%;
-      overflow: hidden;
-      
-
-    }
-    .difference-image{
-      object-fit: cover;
-      height: 425px;
-      width: 425px;
-    }
-    .mainribbon-container{
-      height: 250px;
-      width: 100%;
-      background-color: #f1e8d9;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .ribbon-container{
-      width: 68%;
-      height: 75%;
-      display: flex;
-      flex-direction: row;
-      justify-content: space-evenly;
-      align-items: center;
-
-    }
-    .ribbon{
-      height: 75%;
-      width: 12%;
-      background-color: white;
-      border-top: 6px solid #23704c;
-      clip-path: polygon(0 0 , 100% 0 , 100% 100% , 50% 85% , 0 100%);
-      display: flex;
-      flex-direction: column;
-
-    }
-    .ribbon-title-container{
-      width: 100%;
-      height: 20%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      
-      
-    }
-    .ribbon-title{
-      font-family: "DM Mono";
-      font-size: 11px;
-      margin-top: 25px;
-      font-weight: bold;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-      color: #23704c;
-    }
-
-    .ribbon-text-container{
-      width: 100%;
-      height: 80%;
-      display: block;
-      
-      
-
-    }
-    .ribbon-text{
-      font-family: "Archivo";
-      font-size: 16px;
-      font-weight: 900;
-      text-transform: uppercase;
-      text-align: center;
-      color: #23704c;
-      line-height: 25px;
-      
-    }
-
-    /* shop */
-    .mainShop-container{
-      background-color:#f9f3e9 ;
-      display: flex;
-      width: 100%;
-      padding-bottom: 90px;
-      flex-direction: column;
-      
-    }
-    .maintext-container{
-      height: 25%;
-      width: 60%;
-      margin-top: 60px;
-      /* border: 1px solid black; */
-      display: flex;
-      flex-direction: column;
-      
-    }
-    .text-container{
-      display: block;
-      align-items: center;
-      margin-left: 100px;
-      height: 65%;
-      /* background-color: lightblue; */
-    }
-    .Shop-title-text{
-      font-family: "Archivo";
-      font-weight: bold;
-      font-size: 40px;
-      color: #23704c;
-      
-    }
-    .button-container{
-      height: 35%;
-      width: 88%;
-      /* background-color: lightpink; */
-      margin-left: 83px;
-      display: flex;
-      flex-direction: row;
-      justify-content: space-evenly;
-      align-items: center;
-    }
-    .filter-button{
-      border: 1.5px solid #23704c;
-      padding: 9px 16px;
-      color: #23704c;
-      background-color: transparent;
-      border-radius: 40px;
-      font-family: "DM Mono";
-      font-size: 12px;
-      font-weight: bold;
-      text-transform: uppercase;
-      cursor: pointer;
-      /* transition: all 0.3s ease-in; */
-    }
-    .filter-button:hover , .filter-button.active{
-      background-color: #23704c;
-      color: white;
-    }
-    .shop-container{
-      display: grid;
-      grid-template-columns: repeat(4 , 1fr);
-      gap: 40px 24px;
-      padding: 30px 100px 0;
-
-    }
-    .product-card{
-      display: flex;
-      flex-direction: column;
-      animation: CardFadeup 0.5s ease both;
-    }
-    .product-image-container{
-      position: relative;
-      width: 100%;
-      background-color: #f1e8d9;
-      border-radius: 5px;
-      overflow: hidden;
-
-    }
-    .product-image {
-     width: 100%;
-     height: 100%;
-     object-fit: cover;
-     display: block;
-     transition: transform 0.6s ease;
-}
-    .product-card:hover .product-image{
-      transform: scale(1.04);
-    }
-    .product-badge{
-      position: absolute;
-      top: 12px;
-      right: 12px;
-      width: 56px;
-      height: 56px;
-      padding: 6px;
-      border-radius: 50%;
-      background-color: white;
-      border: 1.5px solid #23704c;
-      box-sizing: border-box;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      font-family: "DM Mono";
-      font-size: 8px;
-      font-weight: 700;
-      
-      text-transform: uppercase;
-      transform: rotate(10deg);
-      user-select: none;
-      color: #23704c;
-      
-
-    }
-
-    .product-text-container{
-      margin-top: 12px;
-      min-height: 70px;
-    }
-    .product-name{
-      margin: 0 0 6px;
-      font-family: "Archivo";
-      font-size: 22px;
-      font-weight: 800;
-      text-transform: uppercase;
-      color: #23704c;
-    }
-    .product-type , .product-notes{
-      margin: 0;
-      font-family: "DM Mono";
-      font-size: 11px;
-      font-weight: 700;
-      text-transform: uppercase;
-      color: #5b5b55;
-
-    }
-
-    .product-button-container {
-      margin-top: 10px;
-    }
-    .product-button{
-      border: none;
-      border-radius: 6px;
-      padding: 13px 20px;
-      background-color: white;
-      color: #23704c;
-      font-family: "Archivo";
-      font-weight: 700;
-      font-size: 14px;
-      cursor: pointer;
-      box-shadow: 0px 1px 0 #e7dccb;
-      transition: all 0.2s;
-    }
-    .product-button:hover{
-      background-color: #23704c;
-      color: white;
-    }
-    .product-button:active{
-      transform: translateY(2px);
-    }
-
-
-    
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    @keyframes ticker{
-      from {transform: translateX(0)}
-      to {transform: translateX(-50%)}
-    }
-    @keyframes scroll{
-      from{transform:translateY(-100%)}
-      to{transform:translate(0)}
-    }
-    @keyframes CardFadeup{
-      from{opacity: 0; transform: translateY(14px);}
-      to{opacity: 1; transform: translateY(0);}
-    }
-  </style>
-</head>
-
-<body>
-
-  <div class="announcement-container">Add a gift pouch to any order for Rs 40 ✦ Handmade in Mauritius</div>
-
-  <header class="mainHeader">
-
-    <div class="logoContainer">
-      <div class="logowrap">
-      <span class="logo1">Personality</span>
-      <span class="logo2">Organics</span>
-      </div>
-      
-    </div>
-
-    <nav class="header-middle-container">
-      <a >Home</a>
-      <a >Shop All</a>
-      <a >About us</a>
-      <a >Contact</a>
-    </nav>
-
-    <div class="header-left-container">
-      <div class="cartContainer">
-        <img src="images/shopping-bag.png" class="cartImage" alt="Shopping bag">
-        <span class="cartCount">01</span>
-      </div>
-      <div class="userContainer">
-        <div class="login-button-container">
-          <button class="login-button">Login</button>
-        </div>
-        <div class="signup-button-container">
-          <button class="signup-button">Sign up</button>
-        </div>
-        
-        <div class="profile-icon-container">
-          <img src="images/user.png" class="userImage" alt="profile">
+        <div class="logoContainer">
+          <div class="logowrap">
+          <span class="logo1">Personality</span>
+          <span class="logo2">Organics</span>
+          </div>
           
         </div>
+
+        <nav class="header-middle-container">
+          <a href="#hero">Home</a>
+          <a href="#shop">Shop All</a>
+          <a href="#about">About us</a>
+          <a href="#about">Contact</a>
+        </nav>
+
+        <div class="header-left-container">
+          <div class="cartContainer">
+            <img src="images/shopping-bag.png" class="cartImage" alt="Shopping bag" onclick="openCart()">
+            <span class="cartCount">00</span>
+          </div>
+          <div class="userContainer">
+            <div class="login-button-container">
+              <a href="login.html"><button class="login-button">Login</button></a>
+            </div>
+            <div class="signup-button-container">
+              <a href="signup.html"><button class="signup-button">Sign up</button></a>
+            </div>
+            
+            <div class="profile-icon-container">
+              <img src="images/user.png" class="userImage" alt="profile">
+              
+            </div>
+            
+          </div>
+        </div>
         
-      </div>
-    </div>
-    
-   
+      
 
-  </header>
+      </header>
 
 
 
-   <div class="mainHero-container">
-    <img src="images/image-1791381336823.jpg" class="hero-image active">
-    <img src="images/image-1791381388062.jpg" class="hero-image">
-    <img src="images/image-1791381395807.jpg" class="hero-image">
-    <div class="hero-shade"></div>
+      <div class="mainHero-container" id="hero">
+        <img src="images/image-1791381336823.jpg" class="hero-image active">
+        <img src="images/image-1791381388062.jpg" class="hero-image">
+        <img src="images/image-1791381395807.jpg" class="hero-image">
+        <div class="hero-shade"></div>
 
-    <!-- text section -->
-    <p class="hero-text">Little rituals,<span class="hero-text2">big personality.</span></p>
-    <p class="hero-text3">Organic bath & body rituals, handmade in Mauritius.</p>
+        <!-- text section -->
+        <p class="hero-text">Little rituals,<span class="hero-text2">big personality.</span></p>
+        <p class="hero-text3">Organic bath & body rituals, handmade in Mauritius.</p>
 
-    <!-- button sections -->
-     <button class="hero-button">Shop the collection <span>→</span></button>
-    <!-- dots section -->
-     <div class="hero-dots">
-      <span class="dots active"></span>
-      <span class="dots"></span>
-      <span class="dots"></span>
-     </div>
-   </div>
-
-   <!-- ticker -->
-   <div class="Ticker-container">
-    <div class="TickerTrack">
-      <span>give me a break calming ✦</span>
-      <span>pinklady uplifting ✦</span>
-      <span>lavender dream deep sleep ✦</span>
-      <span>cica bomb cracked heels ✦</span>
-      <span>sole savior varices ✦</span>
-      <span>serenity blossom detoxifying ✦</span>
-      <span>shower performer ingrown hairs ✦</span>
-      <span>relief sinus relief ✦</span>
-      <span>inhale unblocks nose ✦</span>
-    
-      <!-- second copy -->
-      <span>give me a break calming ✦</span>
-      <span>pinklady uplifting ✦</span>
-      <span>lavender dream deep sleep ✦</span>
-      <span>cica bomb cracked heels ✦</span>
-      <span>sole savior varices ✦</span>
-      <span>serenity blossom detoxifying ✦</span>
-      <span>shower performer ingrown hairs ✦</span>
-      <span>relief sinus relief ✦</span>
-      <span>inhale unblocks nose ✦</span>
-    </div>
-   </div>
-
-
-   <div class="mainfeature-container">
-    <div class="feature-container">
-
-      <div class="feature-product-container">
-        <div class="feature-productImage-container">
-          <div class="featureProductImageContainer">
-            <img src="images/image-1791465554938.jpg" class="feature-image">
-            <span class="sticker">Calming</span>
-          </div>
-          <div class="feature-button-container">
-            <button class="feature-button">Rs 449 • Add to Bag</button>
-          </div>
+        <!-- button sections -->
+        <a href="#shop"><button class="hero-button">Shop the collection <span>→</span></button></a>
+        <!-- dots section -->
+        <div class="hero-dots">
+          <span class="dots active"></span>
+          <span class="dots"></span>
+          <span class="dots"></span>
         </div>
       </div>
 
-      <div class="feature-hero">
-        <img src="images/feature image 1.jpg" class="feature-hero-image">
-        <div class="feature-hero-tint"></div>
-        <p class="feature-header">Give me a break</p>
-        <p class="feature-mini-header">LAVENDER, VANILLA & ASHWAGANDHA BATH BOMB</p>
-        <ul class="benefits-list">
-          <li>Unwinds body &amp; mind.</li>
-          <li>Soft floral vanilla scent.</li>
-          <li>Ashwagandha for calm.</li>
-          <li>Lavender, vanilla, ashwagandha.</li>
+      <!-- ticker -->
+      <div class="Ticker-container">
+        <div class="TickerTrack">
+          <span>give me a break calming ✦</span>
+          <span>pinklady uplifting ✦</span>
+          <span>lavender dream deep sleep ✦</span>
+          <span>cica bomb cracked heels ✦</span>
+          <span>sole savior varices ✦</span>
+          <span>serenity blossom detoxifying ✦</span>
+          <span>shower performer ingrown hairs ✦</span>
+          <span>relief sinus relief ✦</span>
+          <span>inhale unblocks nose ✦</span>
+        
+          <!-- second copy -->
+          <span>give me a break calming ✦</span>
+          <span>pinklady uplifting ✦</span>
+          <span>lavender dream deep sleep ✦</span>
+          <span>cica bomb cracked heels ✦</span>
+          <span>sole savior varices ✦</span>
+          <span>serenity blossom detoxifying ✦</span>
+          <span>shower performer ingrown hairs ✦</span>
+          <span>relief sinus relief ✦</span>
+          <span>inhale unblocks nose ✦</span>
+        </div>
+      </div>
+
+
+      <div class="mainfeature-container">
+        <div class="feature-container">
+
+          <div class="feature-product-container">
+            <div class="feature-productImage-container">
+              <div class="featureProductImageContainer">
+                <img src="images/image-1791465554938.jpg" class="feature-image">
+                <span class="sticker">Calming</span>
+              </div>
+              <div class="feature-button-container">
+                <button class="feature-button" onclick="addToCart('give me a break')">Rs 449 • Add to Bag</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="feature-hero">
+            <img src="images/feature image 1.jpg" class="feature-hero-image">
+            <div class="feature-hero-tint"></div>
+            <p class="feature-header">Give me a break</p>
+            <p class="feature-mini-header">LAVENDER, VANILLA & ASHWAGANDHA BATH BOMB</p>
+            <ul class="benefits-list">
+              <li>Unwinds body &amp; mind.</li>
+              <li>Soft floral vanilla scent.</li>
+              <li>Ashwagandha for calm.</li>
+              <li>Lavender, vanilla, ashwagandha.</li>
+            </ul>
+          </div>
+
+        </div>
+
+        <div class="feature-container">
+
+          <div class="feature-hero">
+            <img src="images/feature image 2.jpg" class="feature-hero-image">
+            <div class="feature-hero-tint"></div>
+            <p class="feature-header">cica bomb</p>
+            <p class="feature-mini-header">Seaweed pedicure bomb for tired, cracked heels</p>
+            <ul class="benefits-list">
+              <li>Intense hydration.</li>
+              <li>Mood boosting.</li>
+              <li>Soothes inflammation.</li>
+              <li>Cica, neroli, ylang-ylang.</li>
+            </ul>
+          </div>
+
+          <div class="feature-product-container">
+            <div class="feature-productImage-container">
+              <div class="featureProductImageContainer">
+                <img src="images/feature-product2.jpg" class="feature-image">
+                <span class="sticker">Cracked Heels</span>
+              </div>
+              <div class="feature-button-container">
+                <button class="feature-button" onclick="addToCart('cica bomb')">Rs 500 • Add to Bag</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="feature-container">
+
+          <div class="feature-product-container">
+            <div class="feature-productImage-container">
+              <div class="featureProductImageContainer">
+                <img src="images/feature-product3.jpg" class="feature-image">
+                <span class="sticker">Detoxifying</span>
+              </div>
+              <div class="feature-button-container">
+                <button class="feature-button" onclick="addToCart('serenity blossom')">Rs 500 • Add to Bag</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="feature-hero">
+            <img src="images/feature image 3.jpg" class="feature-hero-image">
+            <div class="feature-hero-tint"></div>
+            <p class="feature-header">serenity blossom</p>
+            <p class="feature-mini-header">Mauritian sea salt & magnesium soak</p>
+            <ul class="benefits-list">
+              <li>Relaxation.</li>
+              <li>Muscle relief.</li>
+              <li>Skin soothing.</li>
+              <li>Ylang ylang, lemongrass, neroli blossom.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="feature-container">
+          <div class="feature-hero">
+            <img src="images/feature image 4.jpg" class="feature-hero-image">
+            <div class="feature-hero-tint"></div>
+            <p class="feature-header">relief</p>
+            <p class="feature-mini-header">Menthol, eucalyptus & camphor inhalation tabs</p>
+            <ul class="benefits-list">
+              <li>Relieves allergies.</li>
+              <li>Boosts energy & immunity.</li>
+              <li>Relieves migraines.</li>
+              <li>Menthol, eucalyptus, camphor.</li>
+            </ul>
+          </div>
+
+          <div class="feature-product-container">
+            <div class="feature-productImage-container">
+              <div class="featureProductImageContainer">
+                <img src="images/feature-product4.jpg" class="feature-image">
+                <span class="sticker">Sinus Relief</span>
+              </div>
+              <div class="feature-button-container">
+                <button class="feature-button" onclick="addToCart('relief')">Rs 650 • Add to Bag</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- difference section -->
+      <div class="maindifference-container">
+        <div class="difference-header">
+          <span>The</span> 
+          <span>personality</span> 
+          <span>difference.</span>
+        </div>
+        <ul class="difference-list">
+          <li>Plant-derived essential oils</li>
+          <li>Clean &amp; toxin-free formulas</li>
+          <li>Mauritian sea salt &amp; seaweed</li>
+          <li>Gentle on you, kind to nature</li>
+          <li>Eco-conscious &amp; sustainable</li>
+          <li>Handmade in small batches</li>
+          <li>Nothin' else like it</li>
         </ul>
-      </div>
 
-    </div>
-
-    <div class="feature-container">
-
-      <div class="feature-hero">
-        <img src="images/feature image 2.jpg" class="feature-hero-image">
-        <div class="feature-hero-tint"></div>
-        <p class="feature-header">cica bomb</p>
-        <p class="feature-mini-header">Seaweed pedicure bomb for tired, cracked heels</p>
-        <ul class="benefits-list">
-          <li>Intense hydration.</li>
-          <li>Mood boosting.</li>
-          <li>Soothes inflammation.</li>
-          <li>Cica, neroli, ylang-ylang.</li>
-        </ul>
-      </div>
-
-       <div class="feature-product-container">
-        <div class="feature-productImage-container">
-          <div class="featureProductImageContainer">
-            <img src="images/feature-product2.jpg" class="feature-image">
-            <span class="sticker">Cracked Heels</span>
-          </div>
-          <div class="feature-button-container">
-            <button class="feature-button">Rs 500 • Add to Bag</button>
-          </div>
+        <div class="difference-image-container">
+          <img src="images/difference picture.jpg" class="difference-image">
         </div>
       </div>
 
-    </div>
-    <div class="feature-container">
+      <!-- ribbons -->
+        <div class="mainribbon-container">
+          <div class="ribbon-container">
+            <div class="ribbon">
+              <div class="ribbon-title-container">
+                <p class="ribbon-title">ingredients</p>
+              </div>
+              <div class="ribbon-text-container">
+              <p class="ribbon-text">plant derived</p>
 
-      <div class="feature-product-container">
-        <div class="feature-productImage-container">
-          <div class="featureProductImageContainer">
-            <img src="images/feature-product3.jpg" class="feature-image">
-            <span class="sticker">Detoxifying</span>
-          </div>
-          <div class="feature-button-container">
-            <button class="feature-button">Rs 500 • Add to Bag</button>
+              </div>
+            </div>
+            <div class="ribbon">
+              <div class="ribbon-title-container">
+                <p class="ribbon-title">formula</p>
+              </div>
+              <div class="ribbon-text-container">
+              <p class="ribbon-text">clean & toxin-free</p>
+
+              </div>
+            </div>
+            <div class="ribbon">
+              <div class="ribbon-title-container">
+                <p class="ribbon-title">made in</p>
+              </div>
+              <div class="ribbon-text-container">
+              <p class="ribbon-text">Mauritius</p>
+
+              </div>
+            </div>
+            <div class="ribbon">
+              <div class="ribbon-title-container">
+                <p class="ribbon-title">packaging</p>
+              </div>
+              <div class="ribbon-text-container">
+              <p class="ribbon-text">eco conscious</p>
+
+              </div>
+            </div>
+            <div class="ribbon">
+              <div class="ribbon-title-container">
+                <p class="ribbon-title">ready to</p>
+              </div>
+              <div class="ribbon-text-container">
+              <p class="ribbon-text">gift</p>
+
+              </div>
+            </div>
+            <div class="ribbon">
+              <div class="ribbon-title-container">
+                <p class="ribbon-title">batches</p>
+              </div>
+              <div class="ribbon-text-container">
+              <p class="ribbon-text">small & handmade</p>
+
+              </div>
+            </div>
           </div>
         </div>
+
+
+        <div class="mainShop-container" id="shop">
+          <div class="maintext-container">
+            <div class="text-container">
+              <p class="Shop-title-text">Shop All</p>
+            </div>
+            <div class="button-container">
+              <button class="filter-button active " onclick="highlightButton(this , 'all')">All</button>
+              <button class="filter-button" onclick="highlightButton(this , 'bath-bombs')">Bath bomb</button>
+              <button class="filter-button" onclick="highlightButton(this , 'pedicure')">Pedicure bomb</button>
+              <button class="filter-button" onclick="highlightButton(this , 'bath-salts')">Bath salt</button>
+              <button class="filter-button" onclick="highlightButton(this , 'shower')">Shower</button>
+              <button class="filter-button" onclick="highlightButton(this , 'inhalation')">Inhalation tabs</button>
+              <button class="filter-button" onclick="highlightButton(this , 'gifts')">Gifts</button>
+            </div>
+          </div>
+
+          <div class="shop-container" id="shopContainer">
+
+          </div>
+        </div>
+
+        <!-- gift pouch section -->
+        <div class="main-gift-pouch-container">
+          <img src="images/giftPouch.jpg" class="giftPouchImage">
+          <div class="gift-pouch-tint"></div>
+
+          <p class="giftPouch-miniText">gifting , sorted</p>
+          <p class="giftPouch-mainText">"add a gift pouch for rs 40"</p>
+          <button class="giftPouch-button" onclick="addToCart('gift pouch')">Add Gift Pouch <span>→</span></button>
+        </div>
+
+        <!-- ticker 2 -->
+          <div class="Ticker-container second">
+          <div class="TickerTrack">
+            <span>Handmade in Mauritius ✦</span>
+            <span>Order via WhatsApp ✦</span>
+            <span>Gift pouch Rs 40 ✦</span>
+            <span>Plant-derived ingredients ✦</span>
+            <span>Clean &amp; toxin-free ✦</span>
+            <span>Eco-conscious ✦</span>
+
+            <!-- second copy -->
+            <span>Handmade in Mauritius ✦</span>
+            <span>Order via WhatsApp ✦</span>
+            <span>Gift pouch Rs 40 ✦</span>
+            <span>Plant-derived ingredients ✦</span>
+            <span>Clean &amp; toxin-free ✦</span>
+            <span>Eco-conscious ✦</span>
+          </div>
       </div>
 
-      <div class="feature-hero">
-        <img src="images/feature image 3.jpg" class="feature-hero-image">
-        <div class="feature-hero-tint"></div>
-        <p class="feature-header">serenity blossom</p>
-        <p class="feature-mini-header">Mauritian sea salt & magnesium soak</p>
-        <ul class="benefits-list">
-          <li>Relaxation.</li>
-          <li>Muscle relief.</li>
-          <li>Skin soothing.</li>
-          <li>Ylang ylang, lemongrass, neroli blossom.</li>
-        </ul>
-      </div>
-    </div>
-    <div class="feature-container">
-      <div class="feature-hero">
-        <img src="images/feature image 4.jpg" class="feature-hero-image">
-        <div class="feature-hero-tint"></div>
-        <p class="feature-header">relief</p>
-        <p class="feature-mini-header">Menthol, eucalyptus & camphor inhalation tabs</p>
-        <ul class="benefits-list">
-          <li>Relieves allergies.</li>
-          <li>Boosts energy & immunity.</li>
-          <li>Relieves migraines.</li>
-          <li>Menthol, eucalyptus, camphor.</li>
-        </ul>
-      </div>
 
-       <div class="feature-product-container">
-        <div class="feature-productImage-container">
-          <div class="featureProductImageContainer">
-            <img src="images/feature-product4.jpg" class="feature-image">
-            <span class="sticker">Sinus Relief</span>
-          </div>
-          <div class="feature-button-container">
-            <button class="feature-button">Rs 650 • Add to Bag</button>
-          </div>
+      <!-- information container -->
+      <div class="information-container" id="about">
+        <div class="information-header-container">
+          <p class="information-header">@personalityorganics</p>
         </div>
-      </div>
-    </div>
 
-   </div>
+        <div class="info-cards-container">
+          <div class="cards-container">
 
-   <!-- difference section -->
-   <div class="maindifference-container">
-    <div class="difference-header">
-      <span>The</span> 
-      <span>personality</span> 
-      <span>difference.</span>
-    </div>
-    <ul class="difference-list">
-      <li>Plant-derived essential oils</li>
-      <li>Clean &amp; toxin-free formulas</li>
-      <li>Mauritian sea salt &amp; seaweed</li>
-      <li>Gentle on you, kind to nature</li>
-      <li>Eco-conscious &amp; sustainable</li>
-      <li>Handmade in small batches</li>
-      <li>Nothin' else like it</li>
-    </ul>
-
-    <div class="difference-image-container">
-      <img src="images/difference picture.jpg" class="difference-image">
-    </div>
-   </div>
-
-   <!-- ribbons -->
-    <div class="mainribbon-container">
-      <div class="ribbon-container">
-        <div class="ribbon">
-          <div class="ribbon-title-container">
-            <p class="ribbon-title">ingredients</p>
-          </div>
-          <div class="ribbon-text-container">
-          <p class="ribbon-text">plant derived</p>
-
-          </div>
-        </div>
-        <div class="ribbon">
-          <div class="ribbon-title-container">
-            <p class="ribbon-title">formula</p>
-          </div>
-          <div class="ribbon-text-container">
-          <p class="ribbon-text">clean & toxin-free</p>
-
-          </div>
-        </div>
-        <div class="ribbon">
-          <div class="ribbon-title-container">
-            <p class="ribbon-title">made in</p>
-          </div>
-          <div class="ribbon-text-container">
-          <p class="ribbon-text">Mauritius</p>
-
-          </div>
-        </div>
-        <div class="ribbon">
-          <div class="ribbon-title-container">
-            <p class="ribbon-title">packaging</p>
-          </div>
-          <div class="ribbon-text-container">
-          <p class="ribbon-text">eco conscious</p>
-
-          </div>
-        </div>
-        <div class="ribbon">
-          <div class="ribbon-title-container">
-            <p class="ribbon-title">ready to</p>
-          </div>
-          <div class="ribbon-text-container">
-          <p class="ribbon-text">gift</p>
-
-          </div>
-        </div>
-        <div class="ribbon">
-          <div class="ribbon-title-container">
-            <p class="ribbon-title">batches</p>
-          </div>
-          <div class="ribbon-text-container">
-          <p class="ribbon-text">small & handmade</p>
-
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-    <div class="mainShop-container">
-      <div class="maintext-container">
-        <div class="text-container">
-          <p class="Shop-title-text">Shop All</p>
-        </div>
-        <div class="button-container">
-          <button class="filter-button active " onclick="highlightButton(this , 'all')">All</button>
-          <button class="filter-button" onclick="highlightButton(this , 'bath-bombs')">Bath bomb</button>
-          <button class="filter-button" onclick="highlightButton(this , 'pedicure')">Pedicure bomb</button>
-          <button class="filter-button" onclick="highlightButton(this , 'bath-salts')">Bath salt</button>
-          <button class="filter-button" onclick="highlightButton(this , 'shower')">Shower</button>
-          <button class="filter-button" onclick="highlightButton(this , 'inhalation')">Inhalation tabs</button>
-          <button class="filter-button" onclick="highlightButton(this , 'gifts')">Gifts</button>
-        </div>
-      </div>
-
-      <div class="shop-container" id="shopContainer">
-
-      </div>
-    </div>
-<script>
-  const slides = document.querySelectorAll(".hero-image");
-  const dots = document.querySelectorAll(".dots");
-  let current = 0 ; 
-
-
-     
-  function slideshow(i){
-    slides[current].classList.remove("active");
-    dots[current].classList.remove("active");
-
-    current = (i + slides.length) % slides.length;
-    
-    slides[current].classList.add("active");
-    dots[current].classList.add("active");
-  }
-
-  setInterval(function() {
-    slideshow(current+1) ;} , 5500); 
-
-
-  const header = document.querySelector(".mainHeader");
-  const hero = document.querySelector(".mainHero-container");
-  function updateHeader(){
-    const heroBottom = hero.offsetTop + hero.offsetHeight - header.offsetHeight;
-
-    header.classList.toggle("scrolled" , window.scrollY > heroBottom);
-
-  }
-  window.addEventListener("scroll" , updateHeader);
-  updateHeader();
-
-
-
-
-  const products = [{name : "give me a break" , type : "Bath bomb" , notes:"Lavender • Vanilla • Ashwagandha" , mood:"Calming", price : 449 , category:"bath-bombs" , image:"images/image-1791465554938.jpg"},
-  { name: "pinklady",         type: "Bath Bomb",                 notes: "Rosehip • Patchouli • Neroli",       mood: "Uplifting",     price: 449, category: "bath-bombs", image: "images/filter product2.jpg" },
-  { name: "bad bombs",        type: "Imperfect Bath Bombs",      notes: "Assorted scents",                    mood: "Great value",   price: 50,  category: "bath-bombs", image: "images/filter product3.jpg" },
-  { name: "lavender dream",   type: "Seaweed Pedicure Bomb",     notes: "Lavender • Tamanu Oil",              mood: "Deep Sleep",    price: 475, category: "pedicure",   image: "images/filter product4.jpg" },
-  { name: "cica bomb",        type: "Seaweed Pedicure Bomb",     notes: "Cica • Neroli • Ylang-Ylang",        mood: "Cracked Heels", price: 500, category: "pedicure",   image: "images/filter product5.jpg" },
-  { name: "sole savior",      type: "Seaweed Pedicure Bomb",     notes: "Tea Tree • Ashwagandha • Cedarwood", mood: "Varices",       price: 525, category: "pedicure",   image: "images/filter product6.jpg" },
-  { name: "serenity blossom", type: "Magnesium & Sea Salt Soak", notes: "Ylang Ylang • Lemongrass • Neroli",  mood: "Detoxifying",   price: 500, category: "bath-salts", image: "images/filter product7.jpg" },
-  { name: "shower performer", type: "Foaming Shower Scrub",      notes: "Coconut • Oats • Bakuchiol",         mood: "Ingrown Hairs", price: 500, category: "shower",     image: "images/filter product8.jpg" },
-  { name: "relief",           type: "Inhalation Tabs",           notes: "Menthol • Eucalyptus • Camphor",     mood: "Sinus Relief",  price: 650, category: "inhalation", image: "images/filter product9.jpg" },
-  { name: "inhale",           type: "Inhalation Tabs",           notes: "Menthol • Eucalyptus • Lavender",    mood: "Unblocks Nose", price: 600, category: "inhalation", image: "images/filter product10.jpg" },
-  { name: "gift pouch",       type: "Cotton Gift Pouch",         notes: "Natural cotton • Drawstring",        mood: "Add-on",        price: 40,  category: "gifts",      image: "images/filter product11.jpg" }
-];
-  
-
-  // filter buttons 
-  function highlightButton(button , category){
-    document.querySelector(".filter-button.active").classList.remove("active");
-
-    button.classList.add("active");
-
-    changeGrid(category);
-  }
-
-  // shop filter
-
-  const shopGrid = document.getElementById("shopContainer");
-
-
-  function changeGrid(category){
-    let list = [];
-
-    for(let i = 0 ; i <products.length ; i++){
-      if (category === "all" || products[i].category === category){
-        list.push(products[i]);
-      }}
-
-
-      shopGrid.innerHTML= list.map(function (p,i){
-        return `
-        <div class="product-card" style="animation-delay: ${i * 40}ms">
-            <div class="product-image-container">
-              <img src="${p.image}" class="product-image" alt="${p.name}">
-              <div class="product-badge">${p.mood}</div>
-            </div>  
-
-            <div class="product-text-container">
-              <p class="product-name">${p.name}</p>
-              <p class="product-type">${p.type}</p>
-              <p class="product-notes">${p.notes}</p>
+            <div class="cardmini-header-container">
+              <p class="card-mini-header">our story</p>
+            </div>
+            <div class="card-header-container">
+              <p class="card-header">Made in Mauritius, with personality.</p>
+            </div>
+            <div class="card-text-container">
+              <p class="card-text">Small-batch bath and body rituals made with Mauritian sea salt, seaweed and organic essential oils. Each one is made for a mood.</p>
+            </div>
+            <div class="card-link-container">
+              <a href="" class="card-link">Find your mood →</a>
             </div>
 
-            <div class="product-button-container">
-              <button class="product-button">Rs ${p.price} • Add to Bag →</button>
+          </div>
+          <div class="cards-container">
+
+            <div class="cardmini-header-container">
+              <p class="card-mini-header">Say hello</p>
+            </div>
+            <div class="card-header-container">
+              <p class="card-header">Order on WhatsApp in a few taps.</p>
+            </div>
+            <div class="card-text-container">
+              <p class="card-text">Fill your bag, send us your order and we'll confirm availability and delivery with you directly.</p>
+            </div>
+            <div class="card-link-container">
+              <a href="" class="card-link">Message us →</a>
             </div>
 
-        </div> `;
-      }).join("");
+          </div>
+          <div class="cards-container">
+            <div class="cardmini-header-container">
+              <p class="card-mini-header">Good to know</p>
+            </div>
+            <div class="card-header-container">
+              <p class="card-header">Gentle, but please patch test.</p>
+            </div>
+            <div class="card-text-container">
+              <p class="card-text">For external use only. Not suitable for children under 3 or during pregnancy. Patch test if your skin is sensitive.</p>
+            </div>
+            <div class="card-link-container">
+              <a href="" class="card-link">Email us →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- footer -->
+      <footer class="footer-container">
+        <p class="main-footer-text">Personality organics</p>
+        <a href="#hero" class="footer-home">Home</a>
+        <a href="#shop" class="footer-shop">Shop all</a>
+        <a href="#about" class="footer-about">About us</a>
+        <a href="#about" class="footer-contact">Contact</a>
+        <p class="copyright">Handmade in Mauritius · © 2026 Personality organics</p>
+      </footer>
+
+
+      <!-- cart pop up -->
+      <div class="cart" id="drawer">
+        <div class="cart-box">
+          <button class="close-btn" onclick="closeCart()">×</button>
+          <h3>Your Bag</h3>
+
+          <div id="cartItems"></div>
+
+          <p class="total">Total: <strong id="cartTotal">Rs 0</strong></p>
+          <button class="checkout-btn">Checkout</button>
+        </div>
+      </div>
     
-  }
-  changeGrid("all");
-</script>
+    
+      <script src="script.js"></script>
 
-</body>
+    </body>
 
 
-</html>
+    </html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Log in</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f3e9;
+      margin: 0;
+    }
+
+    .header {
+      background-color: #23704c;
+      color: white;
+      padding: 15px 30px;
+    }
+
+    .header a {
+      color: white;
+      text-decoration: none;
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    .box {
+      width: 400px;
+      margin: 60px auto;
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+    }
+
+    h1 {
+      color: #23704c;
+      margin-top: 0;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      margin-bottom: 5px;
+      color: #23704c;
+      font-weight: bold;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #cccccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+
+    button {
+      width: 100%;
+      margin-top: 25px;
+      padding: 12px;
+      background-color: #23704c;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #17543a;
+    }
+
+    p {
+      text-align: center;
+    }
+
+    p a {
+      color: #23704c;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <a href="index.html">Personality Organics</a>
+  </div>
+
+  <div class="box">
+    <h1>Log in</h1>
+
+    <form>
+      <label for="username">Username</label>
+      <input type="text" id="username" name="username">
+
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password">
+
+      <button type="submit">Log in</button>
+    </form>
+
+    <p>New here? <a href="signup.html">Create an account</a></p>
+  </div>
+
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+      fetch("login.php", { method: "POST", body: new FormData(this) })
+      .then(response => response.text())
+      .then(result => {
+        if (result === "success") {
+          window.location.href = "index.html";
+        } else {
+          document.getElementById("message").textContent = result;
+        }
+      });
+  
+  
+  })
+  </script>
+</body>
+</html>
