@@ -32,18 +32,15 @@
 
 
 
-      const products = [{name : "give me a break" , type : "Bath bomb" , notes:"Lavender • Vanilla • Ashwagandha" , mood:"Calming", price : 449 , category:"bath-bombs" , image:"images/image-1791465554938.jpg"},
-      { name: "pinklady",         type: "Bath Bomb",                 notes: "Rosehip • Patchouli • Neroli",       mood: "Uplifting",     price: 449, category: "bath-bombs", image: "images/filter product2.jpg" },
-      { name: "bad bombs",        type: "Imperfect Bath Bombs",      notes: "Assorted scents",                    mood: "Great value",   price: 50,  category: "bath-bombs", image: "images/filter product3.jpg" },
-      { name: "lavender dream",   type: "Seaweed Pedicure Bomb",     notes: "Lavender • Tamanu Oil",              mood: "Deep Sleep",    price: 475, category: "pedicure",   image: "images/filter product4.jpg" },
-      { name: "cica bomb",        type: "Seaweed Pedicure Bomb",     notes: "Cica • Neroli • Ylang-Ylang",        mood: "Cracked Heels", price: 500, category: "pedicure",   image: "images/filter product5.jpg" },
-      { name: "sole savior",      type: "Seaweed Pedicure Bomb",     notes: "Tea Tree • Ashwagandha • Cedarwood", mood: "Varices",       price: 525, category: "pedicure",   image: "images/filter product6.jpg" },
-      { name: "serenity blossom", type: "Magnesium & Sea Salt Soak", notes: "Ylang Ylang • Lemongrass • Neroli",  mood: "Detoxifying",   price: 500, category: "bath-salts", image: "images/filter product7.jpg" },
-      { name: "shower performer", type: "Foaming Shower Scrub",      notes: "Coconut • Oats • Bakuchiol",         mood: "Ingrown Hairs", price: 500, category: "shower",     image: "images/filter product8.jpg" },
-      { name: "relief",           type: "Inhalation Tabs",           notes: "Menthol • Eucalyptus • Camphor",     mood: "Sinus Relief",  price: 650, category: "inhalation", image: "images/filter product9.jpg" },
-      { name: "inhale",           type: "Inhalation Tabs",           notes: "Menthol • Eucalyptus • Lavender",    mood: "Unblocks Nose", price: 600, category: "inhalation", image: "images/filter product10.jpg" },
-      { name: "gift pouch",       type: "Cotton Gift Pouch",         notes: "Natural cotton • Drawstring",        mood: "Add-on",        price: 40,  category: "gifts",      image: "images/filter product11.jpg" }
-    ];
+            // products now come from the database (get_products.php)
+      let products = [];
+
+      fetch("products.php")
+        .then(response => response.json())
+        .then(data => {
+          products = data;
+          changeGrid("all");
+        });
       
 
       // filter buttons 
@@ -91,7 +88,7 @@
           }).join("");
         
       }
-      changeGrid("all");
+      
 
 
 
@@ -118,6 +115,7 @@
       }
       function addToCart(name) {
         const product = products.find(p => p.name === name);
+        if (!product) return;
         cart.push(product);
         showCart();
         
@@ -153,3 +151,39 @@
         document.querySelector(".cartCount").textContent = String(cart.length).padStart(2, "0");
       }
       showCart();
+
+            // checkout: send the bag to place_order.php with AJAX
+      function checkout() {
+        if (cart.length === 0) {
+          alert("Your bag is empty");
+          return;
+        }
+
+        const data = new FormData();
+        data.append("items", JSON.stringify(cart.map(p => p.name)));
+
+        fetch("place_order.php", { method: "POST", body: data })
+          .then(response => response.text())
+          .then(result => {
+            if (result === "success") {
+              alert("Thank you! Your order has been placed.");
+              cart = [];
+              showCart();
+              closeCart();
+            } else {
+              alert(result);
+            }
+          });
+      }
+
+
+            
+      fetch("check_session.php")
+        .then(response => response.json())
+        .then(data => {
+          if (data.loggedIn) {
+            document.querySelector(".login-button-container").style.display = "none";
+            document.querySelector(".signup-button-container").style.display = "none";
+            document.querySelector(".profile-icon-container").style.display = "flex";
+          }
+        });

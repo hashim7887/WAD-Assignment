@@ -84,7 +84,7 @@
   <div class="box">
     <h1>Log in</h1>
 
-    <form>
+    <form id="loginForm">
       <label for="username">Username</label>
       <input type="text" id="username" name="username">
 
@@ -93,13 +93,16 @@
 
       <button type="submit">Log in</button>
     </form>
+    <p id="message" style="color:#b3261e; font-weight:bold;"></p>
 
     <p>New here? <a href="signup.html">Create an account</a></p>
+
   </div>
 
   <script>
     document.getElementById("loginForm").addEventListener("submit", function (e) {
     e.preventDefault();
+
       fetch("login.php", { method: "POST", body: new FormData(this) })
       .then(response => response.text())
       .then(result => {

@@ -24,7 +24,7 @@ html { scroll-behavior: smooth;
 
         .mainHeader {
           
-          border-bottom: 1px solid rgba(194, 194, 194, 0.642);
+          
           background-color: transparent;
           height: 70px;
           width: 100%;
@@ -41,6 +41,7 @@ html { scroll-behavior: smooth;
           top: 0;
           background-color:#f9f3e9 ;
           animation: scroll 0.3s ease-in;
+          border-bottom: 1px solid rgba(194, 194, 194, 0.642);
         }
 
         .mainHeader.scrolled .logo1 ,
