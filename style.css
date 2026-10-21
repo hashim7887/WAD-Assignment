@@ -279,19 +279,29 @@ html { scroll-behavior: smooth;
 
         }
         
-        .userImage{
-          height: 23px;
-          cursor: pointer ;
-        }
-        .userImage:hover{
-          cursor:pointer;
-          height: 21px;
-          transition: 0.3s ease-in-out;
-        }
-        .userImage:active{
+        .logout-button{
+          border: none;
+          color: white;
+          font-family: "Archivo";
+          font-size: 16px;
+          font-weight: 500;
+          background-color: #EF4444;
+          padding: 10px 18px 10px 18px;
+          border-radius: 12px; 
+          white-space: nowrap;
+          margin-left: 5px;
           cursor: pointer;
-          height: 18px;
-          transition:0.1s ease;
+        }
+        .logout-button:hover{
+          transition: 0.3s ;
+          transform: translateY(-1px);
+          box-shadow: 0px 3px 4px rgba(0,0,0,0.15);
+        }
+        .logout-button:active{
+          transform: translateY(0);
+          transition: 0.3s ;
+          padding: 9px 17px 9px 17px ;
+          box-shadow: 0px 3px 4px rgba(0,0,0,0.15);
         }
 
         .mainHero-container{
