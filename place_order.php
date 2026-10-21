@@ -2,13 +2,11 @@
 session_start();
 include "db.php";
 
-// Only logged-in users can check out
 if (!isset($_SESSION["user_id"])) {
   echo "Please log in before checking out";
   exit;
 }
 
-// The bag arrives as a list of product names, e.g. ["cica bomb", "relief"]
 $names = json_decode($_POST["items"] ?? "[]", true);
 
 if (!is_array($names) || count($names) == 0) {
@@ -16,7 +14,6 @@ if (!is_array($names) || count($names) == 0) {
   exit;
 }
 
-// Look up each price in the products table and add up the total
 $total = 0;
 $items = [];
 $stmt = mysqli_prepare($conn, "SELECT price FROM products WHERE name = ?");
@@ -32,9 +29,8 @@ foreach ($names as $name) {
   }
 }
 
-$itemsText = implode(", ", $items);   // e.g. "cica bomb, relief"
+$itemsText = implode(", ", $items);
 
-// Save the order
 $stmt = mysqli_prepare($conn, "INSERT INTO orders (user_id, items, total) VALUES (?, ?, ?)");
 mysqli_stmt_bind_param($stmt, "isi", $_SESSION["user_id"], $itemsText, $total);
 mysqli_stmt_execute($stmt);

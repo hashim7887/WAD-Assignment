@@ -32,7 +32,6 @@
 
 
 
-            // products now come from the database (get_products.php)
       let products = [];
 
       fetch("products.php")
@@ -43,7 +42,6 @@
         });
       
 
-      // filter buttons 
       function highlightButton(button , category){
         document.querySelector(".filter-button.active").classList.remove("active");
 
@@ -52,7 +50,6 @@
         changeGrid(category);
       }
 
-      // shop filter
 
       const shopGrid = document.getElementById("shopContainer");
 
@@ -102,7 +99,6 @@
 
 
 
-      // cart pop up section
       let cart = [];  
 
       
@@ -152,7 +148,6 @@
       }
       showCart();
 
-            // checkout: send the bag to place_order.php with AJAX
       function checkout() {
         if (cart.length === 0) {
           alert("Your bag is empty");

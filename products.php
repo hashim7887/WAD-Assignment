@@ -6,7 +6,7 @@ $result = mysqli_query($conn, "SELECT * FROM products");
 
 $products = [];
 while ($row = mysqli_fetch_assoc($result)) {
-  $row["price"] = (int) $row["price"];   // MySQL gives text; make it a number for the cart total
+  $row["price"] = (int) $row["price"];
   $products[] = $row;
 }
 
